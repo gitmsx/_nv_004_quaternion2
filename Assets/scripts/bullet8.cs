@@ -12,9 +12,9 @@ public class bullet8 : MonoBehaviour
     public float SShift1 = 0.02f;
     public float SShift2 = 0.02f;
     private GameObject bulletClone;
-    private GameObject bulletClone2;
+    
 
-    public float bulletSpeed = 100;
+    public float bulletSpeed = 70;
     //public Rigidbody bullet;
     public GameObject BulletPF;
     public GameObject SperePF;
@@ -35,7 +35,7 @@ public class bullet8 : MonoBehaviour
         bulletClone = Instantiate(BulletPF, transform.position, transform.rotation);
         bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
 
-       // var color_obj = bulletClone.GetComponent<Color>();
+       
         var material_obj = bulletClone.GetComponent<Material>();
 
         listObj.Add(bulletClone);
@@ -50,26 +50,6 @@ public class bullet8 : MonoBehaviour
         Vector3 posi1 = new Vector3(x1, y1, z1);
         Destroy(bulletClone, 5.5f);
 
-
-
-
-
-
-        bulletClone2 = Instantiate(SperePF, posi1, transform.rotation);
-        listObj.Add(bulletClone2);
-
-        var Rend2 = bulletClone2.GetComponent<Renderer>();
-
-        var color1 = (int)Random.Range(0, 255);
-        var color2 = (int)Random.Range(0, 255);
-        var color3 = (int)Random.Range(0, 255);
-
-        var ColorN= new UnityEngine.Color(color1 / 255.0f, color2 / 255.0f, color3 / 255.0f);
-
-        Rend2.material.SetColor("_Color",ColorN) ;
-
-
-        Destroy(bulletClone2, 5.5f);
 
 
 
