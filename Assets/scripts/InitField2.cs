@@ -49,7 +49,7 @@ public class InitField2 : MonoBehaviour
 
                 Color pix2 = sourceTex.GetPixel(i, j  );
 
-                Vector3 NewPos = new Vector3(1.0f*i, 100, 1.0f * j);
+                Vector3 NewPos = new Vector3(1.0f*i, -25, 1.0f * j);
                     
 
                     BoxClone = Instantiate(BulletPF, NewPos, transform.rotation);

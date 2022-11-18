@@ -13,8 +13,8 @@ public class pictureload1 : MonoBehaviour
     {
         int x = Mathf.FloorToInt(sourceRect.x);
         int y = Mathf.FloorToInt(sourceRect.y);
-        int width = Mathf.FloorToInt(sourceRect.width);
-        int height = Mathf.FloorToInt(sourceRect.height);
+        int width = Mathf.FloorToInt(sourceRect.width/2);
+        int height = Mathf.FloorToInt(sourceRect.height/2);
 
         var  pix2 = sourceTex.GetPixel(x, y);
         Color[] pix = sourceTex.GetPixels(x, y, width, height);
