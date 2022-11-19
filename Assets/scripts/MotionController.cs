@@ -4,7 +4,7 @@ using System.Collections;
 public class MotionController : MonoBehaviour
 {
         public float speed = 5.0f;
-        public float cellSize = 1.0f;//размер ячейки, а также расстояни на которое нужно сдвинуться если была нажата кнопка
+        public float cellSize = 2.0f;//размер ячейки, а также расстояни на которое нужно сдвинуться если была нажата кнопка
         bool isMoving = false;//находимся ли в движении
         Vector3 direction;//направление движения
         Vector3 destPos;//позиция куда двигаемся
@@ -23,7 +23,7 @@ public class MotionController : MonoBehaviour
                         if (Input.GetKeyDown(KeyCode.W))
                         {
                                 //move up
-                                direction = Vector3.up;
+                                direction = Vector3.forward;
                                 destPos = transform.position + direction * cellSize;
                                 isMoving = true;
                         }
@@ -37,7 +37,7 @@ public class MotionController : MonoBehaviour
                         else if (Input.GetKeyDown(KeyCode.S))
                         {
                                 //move down
-                                direction = Vector3.down;
+                                direction = Vector3.back;
                                 destPos = transform.position + direction * cellSize;
                                 isMoving = true;
                         }
