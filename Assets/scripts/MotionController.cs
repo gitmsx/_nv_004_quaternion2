@@ -8,12 +8,24 @@ public class MotionController : MonoBehaviour
         bool isMoving = false;//находимся ли в движении
         Vector3 direction;//направление движения
         Vector3 destPos;//позиция куда двигаемся
+        private Rigidbody rb;
 
-        void Update ()
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void Update ()
         {
                 if (isMoving == true)
                 {
-                        float step = speed * Time.deltaTime;//расстояние, которое нужно пройти в текущем кадре
+            float Horizontalf = Input.GetAxis("Horizontal");
+            float Verticalf = Input.GetAxis("Vertical");
+            Vector3 mov = new Vector3(Horizontalf, 0f, Verticalf) * speed;
+            mov = Vector3.ClampMagnitude(mov, speed);
+            rb.MoveRotation(Quaternion.LookRotation(mov));
+
+            float step = speed * Time.deltaTime;//расстояние, которое нужно пройти в текущем кадре
                         transform.position = Vector3.MoveTowards(transform.position, destPos, step);//двигаем персонажа
                         //достигли нужной позиции - отключаем движение, включаем ловлю нажатых клавиш
                         if (transform.position == destPos) isMoving = false;
