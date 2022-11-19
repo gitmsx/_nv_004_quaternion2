@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9185683212235362817}
   - component: {fileID: 1604249119048619128}
   m_Layer: 0
-  m_Name: chess_pf4
+  m_Name: chess_pf 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 14a965cff91b417449460d600d2c6974, type: 2}
+  - {fileID: 2100000, guid: e20e05395d5e38d4b9df9e6126baa296, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
