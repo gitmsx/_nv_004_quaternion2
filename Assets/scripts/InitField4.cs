@@ -21,7 +21,8 @@ public class InitField4 : MonoBehaviour
 
     void Start()
     {
-        scale_pf=BulletPF.transform.localScale.x;
+        scale_pf = BulletPF.transform.localScale.x;
+     //   scale_pf = 2;
         Fire();
     }
 
@@ -50,7 +51,7 @@ public class InitField4 : MonoBehaviour
             for (int j = 0; j < 20; j++)
 
             {
-                Vector3 NewPos = new Vector3(1.0f * i, 0, 1.0f * j);
+                Vector3 NewPos = new Vector3(scale_pf * i, 0, scale_pf * j);
                 if ((i + j) % 2 == 1)
                 {
 
