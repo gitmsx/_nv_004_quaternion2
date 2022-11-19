@@ -1,7 +1,5 @@
 using UnityEngine;
-using System.Collections;
-using Unity.VisualScripting;
-using System.Threading;
+
 
 public class MotionController : MonoBehaviour
 {
@@ -12,10 +10,14 @@ public class MotionController : MonoBehaviour
     bool isMoving = false;//находимся ли в движении
     Vector3 direction;//направление движения
     Vector3 destPos;//позиция куда двигаемся
+
+//    private bool isMoveEnd = false; // премещение закончено
+    private bool KeyPressed = false; // новое движение
+
     private Rigidbody rb;
     int current_direktion = 0;
     int new_direktion = 0;
-     private Vector3 newRotation;
+    private Vector3 newRotation;
 
     private void Start()
     {
@@ -24,15 +26,28 @@ public class MotionController : MonoBehaviour
 
     void Update()
     {
-        if (isMoving == true)
+
+
+        if (!isMoving && KeyPressed)
         {
+            // isMoveEnd = false;
+            KeyPressed=false;
+        RayCastOn1 rayCast1 = gameObject.AddComponent<RayCastOn1>();
+          //  RayCastOn1 rayCast1 = new RayCastOn1();
+            rayCast1.raycast();
+            
 
+
+        }
+
+
+
+
+        if (isMoving)
+        {
+            KeyPressed = false;
             if (current_direktion != new_direktion)
-
             {
-
-
-                
                 switch (new_direktion)
                 {
                     case 1:
@@ -51,11 +66,11 @@ public class MotionController : MonoBehaviour
                         newRotation = new Vector3(0, 0, 0);
                         break;
                 }
-                
+
                 transform.eulerAngles = newRotation;
 
-              //  transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, newRotation, Time.deltaTime/ speed_time_rotation);
-                
+                //  transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, newRotation, Time.deltaTime/ speed_time_rotation);
+
             }
 
 
@@ -64,9 +79,14 @@ public class MotionController : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, destPos, step);//двигаем персонажа
                                                                                         //достигли нужной позиции - отключаем движение, включаем ловлю нажатых клавиш
             if (transform.position == destPos) isMoving = false;
+
+            KeyPressed = true;
+            
         }
         else
         {
+            
+
             current_direktion = new_direktion;
             if (Input.GetKeyDown(KeyCode.W))
             {
@@ -74,8 +94,6 @@ public class MotionController : MonoBehaviour
                 direction = Vector3.forward;
                 destPos = transform.position + direction * cellSize;
                 isMoving = true;
-               
-
                 new_direktion = 0;
 
             }
@@ -85,7 +103,6 @@ public class MotionController : MonoBehaviour
                 direction = Vector3.left;
                 destPos = transform.position + direction * cellSize;
                 isMoving = true;
-               
                 new_direktion = 3;
             }
             else if (Input.GetKeyDown(KeyCode.S))
@@ -94,7 +111,6 @@ public class MotionController : MonoBehaviour
                 direction = Vector3.back;
                 destPos = transform.position + direction * cellSize;
                 isMoving = true;
-               
                 new_direktion = 2;
 
             }
@@ -104,7 +120,6 @@ public class MotionController : MonoBehaviour
                 direction = Vector3.right;
                 destPos = transform.position + direction * cellSize;
                 isMoving = true;
-               
                 new_direktion = 1;
 
             }
