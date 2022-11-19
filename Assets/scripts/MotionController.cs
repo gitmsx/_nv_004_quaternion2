@@ -18,9 +18,12 @@ public class MotionController : MonoBehaviour
     int current_direktion = 0;
     int new_direktion = 0;
     private Vector3 newRotation;
+    private RayCastOn1 rayCast1;
 
     private void Start()
     {
+         RayCastOn1 rayCast1 = gameObject.AddComponent<RayCastOn1>();
+       // rayCast1 = new RayCastOn1();
 
     }
 
@@ -32,8 +35,6 @@ public class MotionController : MonoBehaviour
         {
             // isMoveEnd = false;
             KeyPressed=false;
-        RayCastOn1 rayCast1 = gameObject.AddComponent<RayCastOn1>();
-          //  RayCastOn1 rayCast1 = new RayCastOn1();
             rayCast1.raycast();
             
 
