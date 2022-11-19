@@ -7,7 +7,7 @@ public class RotatorX  : MonoBehaviour {
 
 
     [SerializeField] AnimationCurve curve;
-    [SerializeField] float speed = 3.7f;
+   // [SerializeField] float speed = 3.7f;
     [SerializeField] float timemove = 7.0f;
 
 
@@ -17,9 +17,9 @@ public class RotatorX  : MonoBehaviour {
     private float timeCount = 0.0f;
 
 
-    float angle;
+  //   float angle;
 	void Start () {
-		angle = 0;
+ //	angle = 0;
         originRotation=transform.rotation;
 
 

@@ -52,14 +52,14 @@ public class InitField4 : MonoBehaviour
 
             {
                 Vector3 NewPos = new Vector3(scale_pf * i, 0, scale_pf * j);
-                if ((i + j) % 2 == 1)
+                if ((i + j) % 3== 1)
                 {
 
                     BoxClone = Instantiate(BulletPF, NewPos, transform.rotation);
 
                 }
                 
-                else if ((i + j) % 2 == 2)
+                else if ((i + j) % 3 == 2)
                 {
 
                     BoxClone = Instantiate(BulletPF2, NewPos, transform.rotation);

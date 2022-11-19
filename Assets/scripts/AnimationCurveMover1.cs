@@ -9,7 +9,7 @@ class AnimationCurveMover1 : MonoBehaviour
     
 
     [SerializeField] AnimationCurve curve;
-    [SerializeField] float speed = 3.7f;
+   // [SerializeField] float speed = 3.7f;
     [SerializeField] float timemove = 7.0f;
 
 
