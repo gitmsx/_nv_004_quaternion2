@@ -1,9 +1,12 @@
 using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
+using System.Threading;
 
 public class MotionController : MonoBehaviour
 {
+
+    public float speed_time_rotation = 3;
     public float speed = 5.0f;
     public float cellSize = 2.0f;//размер ячейки, а также расстояни на которое нужно сдвинуться если была нажата кнопка
     bool isMoving = false;//находимся ли в движении
@@ -12,7 +15,7 @@ public class MotionController : MonoBehaviour
     private Rigidbody rb;
     int current_direktion = 0;
     int new_direktion = 0;
-
+     private Vector3 newRotation;
 
     private void Start()
     {
@@ -29,7 +32,7 @@ public class MotionController : MonoBehaviour
             {
 
 
-                Vector3 newRotation;
+                
                 switch (new_direktion)
                 {
                     case 1:
@@ -48,19 +51,23 @@ public class MotionController : MonoBehaviour
                         newRotation = new Vector3(0, 0, 0);
                         break;
                 }
-                current_direktion = new_direktion;
+                
                 transform.eulerAngles = newRotation;
+
+              //  transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, newRotation, Time.deltaTime/ speed_time_rotation);
+                
             }
 
 
 
-                float step = speed * Time.deltaTime;//расстояние, которое нужно пройти в текущем кадре
+            float step = speed * Time.deltaTime;//расстояние, которое нужно пройти в текущем кадре
             transform.position = Vector3.MoveTowards(transform.position, destPos, step);//двигаем персонажа
                                                                                         //достигли нужной позиции - отключаем движение, включаем ловлю нажатых клавиш
             if (transform.position == destPos) isMoving = false;
         }
         else
         {
+            current_direktion = new_direktion;
             if (Input.GetKeyDown(KeyCode.W))
             {
                 //move up
