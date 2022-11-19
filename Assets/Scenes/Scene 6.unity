@@ -223,6 +223,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 007fbf6ec9b0fa143a85ca041aed8d16, type: 2}
+    - target: {fileID: 3935405175537820606, guid: 18f4f89466dd21b469c9b836b14b3fae, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7329645311160218401, guid: 18f4f89466dd21b469c9b836b14b3fae, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -235,19 +239,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3935405175537820606, guid: 18f4f89466dd21b469c9b836b14b3fae, type: 3}
   m_PrefabInstance: {fileID: 101154974}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &101154976
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101154975}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.017430324, y: 0.01743032, z: 0.023146773}
-  m_Center: {x: 0.000000007450581, y: 0.000000007450581, z: 0.011725347}
 --- !u!114 &101154980
 MonoBehaviour:
   m_ObjectHideFlags: 0
